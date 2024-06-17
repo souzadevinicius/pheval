@@ -1,0 +1,28 @@
+name: Run and deploy release
+
+on:
+  workflow_dispatch:
+  release:
+    types: [published]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    container: obolibrary/odkfull:v1.5
+    strategy:
+      max-parallel: 1
+      
+    steps:
+      - name: Checkout main branch
+        uses: actions/checkout@v3
+
+      - name: Get current date
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
+      
+      - name: Edit Toml
+        uses: ciiiii/toml-editor@1.0.0
+        with:
+          file: "pyproject.toml"
+          key: "tool.poetry.include"
+          value: "[{'include':'corpora'}]"
