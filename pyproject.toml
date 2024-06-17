@@ -8,7 +8,7 @@ authors = ["Yasemin Bridges <y.bridges@qmul.ac.uk>",
   "Vinícius de Souza <souzadevinicius@gmail.com>"]
 readme = "README.md"
 packages = [{include = "pheval", from = "src"}]
-include = [{path=data/corpora}]
+include = [{path = "data/corpora"}]
 
 [tool.poetry.dependencies]
 python = ">=3.9,<4.0.0"
