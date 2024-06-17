@@ -6,12 +6,10 @@ on:
     types: [published]
 
 jobs:
-  deploy:
+  build-n-publish:
+    name: Build 📦
     runs-on: ubuntu-latest
-    container: obolibrary/odkfull:v1.5
-    strategy:
-      max-parallel: 1
-      
+    
     steps:
       - name: Checkout main branch
         uses: actions/checkout@v3
