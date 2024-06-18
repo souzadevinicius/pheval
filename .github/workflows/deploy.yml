@@ -33,4 +33,4 @@ jobs:
           draft: true
           tag_name: v${{ steps.date.outputs.date }}
           files: |
-            dist
+            dist/*
